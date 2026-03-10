@@ -17,8 +17,9 @@ export function Header() {
       <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100">
         <div className="flex items-center justify-between px-6 lg:px-20 py-4 max-w-[1440px] mx-auto w-full">
           {/* Logo */}
-          <Link href="/" className="flex items-center hover:opacity-90 transition-opacity">
+          <Link href="/" className="flex items-center gap-3 hover:opacity-90 transition-opacity">
             <Image src="/images/gms-logo.png" alt={COMPANY.name} width={160} height={48} className="h-12 w-auto" />
+            <span className="text-xl font-bold leading-tight tracking-tight text-gray-900">Global Medical Systems</span>
           </Link>
 
           {/* Desktop nav */}
