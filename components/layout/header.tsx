@@ -3,8 +3,8 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import Image from "next/image";
 import { Menu, X } from "lucide-react";
-import { GmsLogo } from "@/components/shared/gms-logo";
 import { NAV_LINKS, COMPANY } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
@@ -17,11 +17,8 @@ export function Header() {
       <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100">
         <div className="flex items-center justify-between px-6 lg:px-20 py-4 max-w-[1440px] mx-auto w-full">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 text-gray-900 hover:opacity-90 transition-opacity">
-            <GmsLogo size={40} />
-            <span className="text-xl font-bold leading-tight tracking-tight">
-              {COMPANY.name}
-            </span>
+          <Link href="/" className="flex items-center hover:opacity-90 transition-opacity">
+            <Image src="/images/gms-logo.png" alt={COMPANY.name} width={160} height={48} className="h-12 w-auto" />
           </Link>
 
           {/* Desktop nav */}
@@ -69,11 +66,10 @@ export function Header() {
             <div className="flex items-center justify-between px-6 py-4 border-b border-gray-100">
               <Link
                 href="/"
-                className="flex items-center gap-2"
+                className="flex items-center"
                 onClick={() => setMenuOpen(false)}
               >
-                <GmsLogo size={32} />
-                <span className="font-bold text-gray-900 text-sm">{COMPANY.name}</span>
+                <Image src="/images/gms-logo.png" alt={COMPANY.name} width={120} height={36} className="h-9 w-auto" />
               </Link>
               <button
                 onClick={() => setMenuOpen(false)}
