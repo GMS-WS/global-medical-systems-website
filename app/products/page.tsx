@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { COMPANY } from "@/lib/constants";
+import { getSheetProducts } from "@/lib/google-sheets";
+import { FALLBACK_PRODUCTS, FALLBACK_CATEGORIES } from "@/lib/fallback-products";
 import { ProductTabs } from "./product-tabs";
 
 export const metadata: Metadata = {
@@ -16,7 +18,11 @@ const PARTNERS = [
   { name: "Fisher & Paykel", description: "Respiratory care and ICU humidification systems." },
 ];
 
-export default function ProductsPage() {
+export default async function ProductsPage() {
+  const { products: sheetProducts, categories: sheetCategories } = await getSheetProducts();
+  const products = sheetProducts.length > 0 ? sheetProducts : FALLBACK_PRODUCTS;
+  const categories = sheetCategories.length > 0 ? sheetCategories : FALLBACK_CATEGORIES;
+
   return (
     <div className="flex flex-col">
       {/* Hero */}
@@ -73,7 +79,7 @@ export default function ProductsPage() {
       </section>
 
       {/* Product Categories — tabbed navigation */}
-      <ProductTabs />
+      <ProductTabs products={products} categories={categories} />
 
       {/* Exclusive Partnerships */}
       <section className="w-full py-24 bg-white">

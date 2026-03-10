@@ -2,158 +2,29 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import {
-  FlaskConical,
-  ShieldCheck,
-  Wind,
-  Syringe,
-  Eye,
-  ActivitySquare,
-  Microscope,
-  Stethoscope,
-  LayoutGrid,
-} from "lucide-react";
+import { LayoutGrid, Package } from "lucide-react";
 import { cn } from "@/lib/utils";
-
-/* ─── Types ─────────────────────────────────────────────────── */
-
-type TabId = "all" | "diagnostic" | "surgical" | "critical-care";
-
-/* ─── Tabs ──────────────────────────────────────────────────── */
-
-const TABS: { id: TabId; label: string; description: string }[] = [
-  {
-    id: "all",
-    label: "All Categories",
-    description: "Browse our complete range of medical equipment across all clinical departments.",
-  },
-  {
-    id: "diagnostic",
-    label: "Diagnostic Imaging",
-    description:
-      "Advanced imaging and physiological monitoring systems for accurate clinical diagnosis.",
-  },
-  {
-    id: "surgical",
-    label: "Surgical Theatres",
-    description:
-      "Comprehensive OT equipment, ophthalmic surgery systems, and sterilization solutions.",
-  },
-  {
-    id: "critical-care",
-    label: "Critical Care & Life Support",
-    description:
-      "ICU systems, ventilators, medical gas infrastructure, and drug delivery equipment.",
-  },
-];
-
-/* ─── Category Data ─────────────────────────────────────────── */
-
-type Category = {
-  tabId: TabId;
-  icon: React.ElementType;
-  image: string;
-  title: string;
-  description: string;
-  badge?: string;
-};
-
-const CATEGORIES: Category[] = [
-  /* ── Diagnostic Imaging ──────────────────────────────────── */
-  {
-    tabId: "diagnostic",
-    icon: FlaskConical,
-    image: "/images/careers/culture-2.jpg",
-    title: "Diagnostic Imaging",
-    description:
-      "Digital X-ray, ultrasound, C-arm fluoroscopy, and portable imaging units from GE Healthcare for precise clinical diagnosis.",
-    badge: "GE Healthcare",
-  },
-  {
-    tabId: "diagnostic",
-    icon: ActivitySquare,
-    image: "/images/contact/hero.jpg",
-    title: "Physiological Monitoring",
-    description:
-      "12-lead ECG machines, Holter monitors, spirometers, and ambulatory BP systems for cardiac and respiratory assessment.",
-    badge: "GE Healthcare",
-  },
-  {
-    tabId: "diagnostic",
-    icon: Microscope,
-    image: "/images/about/story.jpg",
-    title: "Ophthalmic Diagnostics",
-    description:
-      "ZEISS slit lamps, auto refractometers, fundus cameras, and visual field analysers for comprehensive eye care diagnostics.",
-    badge: "ZEISS",
-  },
-
-  /* ── Surgical Theatres ───────────────────────────────────── */
-  {
-    tabId: "surgical",
-    icon: Syringe,
-    image: "/images/careers/hero.jpg",
-    title: "OT & Surgical Equipment",
-    description:
-      "Electrosurgical units, motorised operating tables, surgical lights, and laparoscopic towers for fully equipped operation theatres.",
-    badge: "B.BRAUN",
-  },
-  {
-    tabId: "surgical",
-    icon: Eye,
-    image: "/images/about/story.jpg",
-    title: "Ophthalmic Surgery",
-    description:
-      "ZEISS surgical microscopes, phacoemulsification systems, vitreoretinal systems, and Nd:YAG laser units for ophthalmic procedures.",
-    badge: "ZEISS",
-  },
-  {
-    tabId: "surgical",
-    icon: Stethoscope,
-    image: "/images/contact/hero.jpg",
-    title: "Sterilization & Infection Control",
-    description:
-      "Steam autoclaves, plasma sterilizers, ultrasonic cleaners, and washer disinfectors to maintain sterility across surgical departments.",
-  },
-
-  /* ── Critical Care & Life Support ───────────────────────── */
-  {
-    tabId: "critical-care",
-    icon: ShieldCheck,
-    image: "/images/careers/hero.jpg",
-    title: "ICU & Patient Monitoring",
-    description:
-      "ICU ventilators, multi-parameter monitors, smart ICU beds, defibrillators, and AEDs from GE Healthcare and Fisher & Paykel.",
-    badge: "GE Healthcare · Fisher & Paykel",
-  },
-  {
-    tabId: "critical-care",
-    icon: Wind,
-    image: "/images/careers/culture-1.jpg",
-    title: "Medical Gas Systems",
-    description:
-      "Complete medical gas pipeline infrastructure including manifolds, pressure regulators, flow meters, and alarm panels from B.BRAUN.",
-    badge: "B.BRAUN",
-  },
-  {
-    tabId: "critical-care",
-    icon: ShieldCheck,
-    image: "/images/careers/culture-2.jpg",
-    title: "Infusion & Drug Delivery",
-    description:
-      "Syringe pumps, volumetric infusion pumps, enteral feeding systems, and humidification units for precise drug and fluid management.",
-    badge: "B.BRAUN · Fisher & Paykel",
-  },
-];
+import type { Product } from "@/lib/google-sheets";
 
 /* ─── Component ─────────────────────────────────────────────── */
 
-export function ProductTabs() {
-  const [activeTab, setActiveTab] = useState<TabId>("all");
+type Props = {
+  products: Product[];
+  categories: string[];
+};
 
-  const activeTabData = TABS.find((t) => t.id === activeTab)!;
-  const visibleCategories =
-    activeTab === "all" ? CATEGORIES : CATEGORIES.filter((c) => c.tabId === activeTab);
+export function ProductTabs({ products, categories }: Props) {
+  const [activeCategory, setActiveCategory] = useState<string>("all");
+
+  const tabs = [
+    { id: "all", label: "All Categories" },
+    ...categories.map((cat) => ({ id: cat, label: cat })),
+  ];
+
+  const visibleProducts =
+    activeCategory === "all"
+      ? products
+      : products.filter((p) => p.category === activeCategory);
 
   return (
     <section className="w-full py-20 bg-gray-50">
@@ -173,17 +44,17 @@ export function ProductTabs() {
 
         {/* Tab bar */}
         <div className="flex overflow-x-auto gap-2 pb-2 mb-4 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-          {TABS.map((tab) => {
+          {tabs.map((tab) => {
             const count =
               tab.id === "all"
-                ? CATEGORIES.length
-                : CATEGORIES.filter((c) => c.tabId === tab.id).length;
-            const isActive = activeTab === tab.id;
+                ? products.length
+                : products.filter((p) => p.category === tab.id).length;
+            const isActive = activeCategory === tab.id;
 
             return (
               <button
                 key={tab.id}
-                onClick={() => setActiveTab(tab.id)}
+                onClick={() => setActiveCategory(tab.id)}
                 className={cn(
                   "flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium whitespace-nowrap transition-all shrink-0 border",
                   isActive
@@ -207,20 +78,24 @@ export function ProductTabs() {
         </div>
 
         {/* Tab description */}
-        <p className="text-gray-400 text-sm mb-10 text-center">{activeTabData.description}</p>
+        <p className="text-gray-400 text-sm mb-10 text-center">
+          {activeCategory === "all"
+            ? "Browse our complete range of medical equipment across all clinical departments."
+            : `${activeCategory} — ${visibleProducts.length} product${visibleProducts.length !== 1 ? "s" : ""}`}
+        </p>
 
         {/* Product cards grid */}
         <div
           className={cn(
             "grid gap-6",
-            visibleCategories.length <= 2
+            visibleProducts.length <= 2
               ? "grid-cols-1 sm:grid-cols-2 max-w-3xl mx-auto"
               : "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
           )}
         >
-          {visibleCategories.map(({ icon: Icon, image, title, description, badge }) => (
+          {visibleProducts.map(({ image, title, description, company }, i) => (
             <div
-              key={title}
+              key={`${title}-${i}`}
               className="rounded-xl overflow-hidden bg-white border border-gray-100 shadow-sm hover:shadow-lg hover:border-primary/20 transition-all group"
             >
               {/* Image */}
@@ -229,15 +104,12 @@ export function ProductTabs() {
                   src={image}
                   alt={title}
                   fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  className="object-contain p-2"
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />
-                {/* Subtle gradient at bottom for blending */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
-                {/* Partner badge overlaid on image */}
-                {badge && (
-                  <span className="absolute bottom-3 left-3 text-[10px] font-semibold text-white bg-black/40 backdrop-blur-sm border border-white/20 px-2 py-1 rounded-full">
-                    {badge}
+                {company && (
+                  <span className="absolute bottom-3 left-3 text-[10px] font-semibold text-white bg-black/60 backdrop-blur-sm border border-white/20 px-2 py-1 rounded-full">
+                    {company}
                   </span>
                 )}
               </div>
@@ -246,7 +118,7 @@ export function ProductTabs() {
               <div className="p-5">
                 <div className="flex items-center gap-2 mb-2">
                   <div className="w-7 h-7 rounded-md bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors shrink-0">
-                    <Icon className="size-4" />
+                    <Package className="size-4" />
                   </div>
                 </div>
                 <h3 className="font-bold text-gray-900 text-lg mb-2 leading-snug">{title}</h3>
