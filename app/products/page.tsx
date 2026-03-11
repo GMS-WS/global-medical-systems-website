@@ -4,7 +4,7 @@ import { COMPANY } from "@/lib/constants";
 import { getSheetProducts } from "@/lib/google-sheets";
 import { FALLBACK_PRODUCTS, FALLBACK_CATEGORIES } from "@/lib/fallback-products";
 import { ProductTabs } from "./product-tabs";
-
+export const revalidate = 60;
 export const metadata: Metadata = {
   title: "Our Products | Global Medical Systems",
   description:
