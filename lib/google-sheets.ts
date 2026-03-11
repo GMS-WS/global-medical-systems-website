@@ -25,7 +25,7 @@ export async function getSheetProducts(): Promise<SheetData> {
   const url = `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${range}?key=${apiKey}`;
 
   try {
-    const res = await fetch(url, { next: { revalidate: 3600 } });
+    const res = await fetch(url, { next: { revalidate: 0 } });
     if (!res.ok) {
       console.error(`Google Sheets API error: ${res.status} ${res.statusText}`);
       return { products: [], categories: [] };
