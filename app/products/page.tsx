@@ -12,10 +12,10 @@ export const metadata: Metadata = {
 };
 
 const PARTNERS = [
-  { name: "GE Healthcare", description: "Global leader in medical imaging and diagnostics." },
-  { name: "B.BRAUN", description: "Infusion therapy, pain management, and surgical instruments." },
-  { name: "ZEISS", description: "Precision optics and surgical microscopes." },
-  { name: "Fisher & Paykel", description: "Respiratory care and ICU humidification systems." },
+  { name: "GE Healthcare", description: "Global leader in medical imaging and diagnostics.", logo: "https://6ph3geydhea1n7n6.public.blob.vercel-storage.com/GE%20HEALTHCARE%20LOGO%20VERCEL.png" },
+  { name: "B.BRAUN", description: "Infusion therapy, pain management, and surgical instruments.", logo: "https://6ph3geydhea1n7n6.public.blob.vercel-storage.com/B%20BRAUN%20LOGO%20VERCEL.png" },
+  { name: "ZEISS", description: "Precision optics and surgical microscopes.", logo: "https://6ph3geydhea1n7n6.public.blob.vercel-storage.com/ZEISS%20LOGO%20VERCEL.png" },
+  { name: "Fisher & Paykel", description: "Respiratory care and ICU humidification systems.", logo: "https://6ph3geydhea1n7n6.public.blob.vercel-storage.com/F%20AND%20P%20LOGO%20VERCEL.png" },
 ];
 
 export default async function ProductsPage() {
