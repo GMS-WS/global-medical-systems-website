@@ -98,12 +98,12 @@ export function ProductTabs({ products, categories }: Props) {
               className="rounded-xl overflow-hidden bg-white border border-gray-100 shadow-sm hover:shadow-lg hover:border-primary/20 transition-all group"
             >
               {/* Image */}
-              <div className="relative aspect-[16/10] overflow-hidden">
-               <img
-  src={image}
-  alt={title}
-  className="w-full h-full object-contain p-2"
-/>
+              <div className="relative aspect-[16/10] overflow-hidden flex items-center justify-center bg-white">
+  <img
+    src={image}
+    alt={title}
+    className="w-full h-full object-contain p-2"
+  />
                 {company && (
                   <span className="absolute bottom-3 left-3 text-[10px] font-semibold text-white bg-black/60 backdrop-blur-sm border border-white/20 px-2 py-1 rounded-full">
                     {company}
