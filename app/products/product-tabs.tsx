@@ -101,12 +101,12 @@ export function ProductTabs({ products, categories }: Props) {
               {/* Image */}
               <div className="relative aspect-[16/10] overflow-hidden">
                 <Image
-                  src={image}
-                  alt={title}
-                  fill
-                  className="object-contain p-2"
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                />
+  src={encodeURI(decodeURI(image))}
+  alt={title}
+  fill
+  className="object-contain p-2"
+  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+/>
                 {company && (
                   <span className="absolute bottom-3 left-3 text-[10px] font-semibold text-white bg-black/60 backdrop-blur-sm border border-white/20 px-2 py-1 rounded-full">
                     {company}
