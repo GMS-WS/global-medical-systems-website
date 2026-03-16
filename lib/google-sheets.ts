@@ -53,7 +53,7 @@ export async function getSheetProducts(): Promise<SheetData> {
         title: row[idx.product]?.trim() ?? "",
         description: row[idx.description]?.trim() ?? "",
         company: row[idx.company]?.trim() ?? "",
-        image: encodeURI(row[idx.image]?.trim() ?? ""),
+        image: encodeURI(decodeURI(row[idx.image]?.trim() ?? "")),
       }));
 
     const categories = [...new Set(products.map((p) => p.category))];
