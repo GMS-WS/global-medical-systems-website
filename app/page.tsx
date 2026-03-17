@@ -33,10 +33,10 @@ const HOSPITAL_BADGES = [
 ];
 
 const PARTNERS = [
-  { name: "GE Healthcare", initials: "GE" },
-  { name: "B.BRAUN", initials: "BB" },
-  { name: "ZEISS", initials: "ZS" },
-  { name: "Fisher & Paykel", initials: "FP" },
+  { name: "GE Healthcare", logo: "https://6ph3geydhea1n7n6.public.blob.vercel-storage.com/GE%20HEALTHCARE%20LOGO%20VERCEL.png" },
+  { name: "B.BRAUN", logo: "https://6ph3geydhea1n7n6.public.blob.vercel-storage.com/B%20BRAUN%20LOGO%20VERCEL.png" },
+  { name: "ZEISS", logo: "https://6ph3geydhea1n7n6.public.blob.vercel-storage.com/ZEISS%20LOGO%20VERCEL.png" },
+  { name: "Fisher & Paykel", logo: "https://6ph3geydhea1n7n6.public.blob.vercel-storage.com/F%20AND%20P%20LOGO%20VERCEL.png" },
 ];
 
 const TRUST_FEATURES = [
@@ -168,9 +168,13 @@ export default function HomePage() {
                 key={partner.name}
                 className="flex flex-col items-center justify-center p-8 rounded-xl bg-white border border-gray-100 shadow-sm hover:shadow-md hover:border-primary/20 transition-all group"
               >
-                <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-3 group-hover:bg-primary/20 transition-colors">
-                  <span className="text-primary font-black text-lg">{partner.initials}</span>
-                </div>
+               <div className="flex items-center justify-center mb-3 h-14">
+  <img
+    src={partner.logo}
+    alt={partner.name}
+    className="h-14 w-auto object-contain"
+  />
+</div>
                 <p className="font-bold text-gray-800 text-sm text-center">{partner.name}</p>
               </div>
             ))}
