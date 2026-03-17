@@ -102,13 +102,13 @@ export default async function ProductsPage() {
                 key={partner.name}
                 className="p-8 rounded-xl border border-gray-100 bg-gray-50 text-center hover:border-primary/20 hover:shadow-md transition-all group"
               >
-                <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-5 group-hover:bg-primary/20 transition-colors">
-                  <img
-  src={partner.logo}
-  alt={partner.name}
-  className="w-10 h-10 object-contain"
-/>
-                </div>
+                <div className="flex items-center justify-center mx-auto mb-5 h-16">
+  <img
+    src={partner.logo}
+    alt={partner.name}
+    className="h-16 w-auto object-contain"
+  />
+</div>
                 <h3 className="font-bold text-gray-900 mb-2">{partner.name}</h3>
                 <p className="text-sm text-gray-500 leading-relaxed">{partner.description}</p>
               </div>
