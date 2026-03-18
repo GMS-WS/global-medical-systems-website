@@ -82,7 +82,7 @@ export function ProductTabs({ products, categories }: Props) {
 
         <div className={cn("grid gap-6", visibleProducts.length <= 2 ? "grid-cols-1 sm:grid-cols-2 max-w-3xl mx-auto" : "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3")}>
           {visibleProducts.map(({ image, title, description, company }, i) => (
-            <div key={`${title}-${i}`} className="rounded-xl overflow-hidden bg-white border border-gray-100 shadow-sm hover:shadow-lg hover:border-primary/20 transition-all group">
+            <div key={`${title}-${i}`} className="rounded-xl overflow-hidden bg-white border border-gray-100 shadow-sm hover:shadow-xl hover:border-primary/20 transition-all duration-300 group hover:-translate-y-2 hover:scale-[1.02]"
               <div className="relative aspect-[16/10] overflow-hidden flex items-center justify-center bg-white">
                 <img src={image} alt={title} className="w-full h-full object-contain p-2" />
                 {company && (
