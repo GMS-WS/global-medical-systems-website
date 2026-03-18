@@ -13,7 +13,7 @@ export function Footer() {
         <div className="max-w-6xl mx-auto px-6">
           <div className="flex flex-col items-center text-center max-w-xl mx-auto mb-12">
             <div className="flex items-center gap-3 mb-4">
-              <GmsLogo size={32} variant="light" />
+             <img src="/images/gms-logo.png" alt="Global Medical Systems" className="h-8 w-auto object-contain" />
               <span className="text-lg font-bold">{COMPANY.name}</span>
             </div>
             <p className="text-gray-400 text-sm leading-relaxed">{COMPANY.tagline}. Empowering healthcare providers in Southern India with world-class technology.</p>
