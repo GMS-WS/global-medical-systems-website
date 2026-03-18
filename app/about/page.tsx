@@ -8,7 +8,7 @@ import { AnimatedCounter } from "@/components/shared/animated-counter";
 
 export const metadata: Metadata = {
   title: "Global Medical Systems | Medical Equipment Distributor",
-  description: "Premier medical equipment distributor across Karnataka and Southern India. Trusted by 500+ hospitals across 30+ districts.",
+  description: "Premier medical equipment channel partner across Karnataka and Southern India. Trusted by 500+ hospitals across 30+ districts.",
 };
 
 const HOSPITAL_BADGES = ["Multi-Specialty Hospitals","500+ Accredited Facilities","Super Specialty Centers","Diagnostic Imaging Centers","ICU & Critical Care Units","Government Healthcare Institutions"];
