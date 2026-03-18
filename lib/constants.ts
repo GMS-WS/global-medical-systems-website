@@ -3,7 +3,7 @@ export const COMPANY = {
   shortName: "GMS",
   tagline: "Improving Lives in Moments that matter",
   description:
-    "Premier medical equipment distributor across Karnataka and Southern India, connecting advanced healthcare technology with local expertise.",
+    "Premier medical equipment channel partner across Karnataka and Southern India, connecting advanced healthcare technology with local expertise.",
   email: "globalmedicalsystem@gmail.com",
   phones: ["+91 9844057183", "+91 9844049798", "080-26617623", "080-26611679"],
   address:
