@@ -12,7 +12,7 @@ export const COMPANY = {
     "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.545722166549!2d77.5638103!3d12.9368886!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae15904d603a67%3A0x629f10438a379104!2sShop%20St%2C%20NR%20Colony%2C%20Basavanagudi%2C%20Bengaluru%2C%20Karnataka%20560004!5e0!3m2!1sen!2sin!4v1715856420123!5m2!1sen!2sin",
   linkedIn: "#",
   instagram: "#",
-  copyright: "© 2024 Global Medical Systems. All rights reserved.",
+  copyright: "© 2026 Global Medical Systems. All rights reserved.",
 } as const;
 
 export const NAV_LINKS = [
