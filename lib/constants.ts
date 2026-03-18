@@ -8,8 +8,8 @@ export const COMPANY = {
   phones: ["+91 9844057183", "+91 9844049798", "080-26617623", "080-26611679"],
   address:
     "Bus terminal, Shop street, behind NR Colony, NR Colony, Basavanagudi, Bengaluru, Karnataka 560004",
-  mapEmbedUrl:
-    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.545722166549!2d77.5638103!3d12.9368886!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae15904d603a67%3A0x629f10438a379104!2sShop%20St%2C%20NR%20Colony%2C%20Basavanagudi%2C%20Bengaluru%2C%20Karnataka%20560004!5e0!3m2!1sen!2sin!4v1715856420123!5m2!1sen!2sin",
+ mapEmbedUrl:
+    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.4756!2d77.5666365!3d12.938193!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae158f4c74eb7f%3A0x5806dfe52ffd1e8d!2sGLOBAL%20MEDICAL%20SYSTEMS!5e0!3m2!1sen!2sin!4v1715856420123!5m2!1sen!2sin",
   linkedIn: "#",
   instagram: "#",
   copyright: "© 2026 Global Medical Systems. All rights reserved.",
