@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Check, MapPin, Cpu, FlaskConical, Wind, Syringe, Eye, Package, ShieldCheck, Globe, Award } from "lucide-react";
 import { CtaSection } from "@/components/shared/cta-section";
+import { ScrollingLogos } from "@/components/shared/scrolling-logos";
 import { COMPANY } from "@/lib/constants";
 import { AnimatedCounter } from "@/components/shared/animated-counter";
 
@@ -78,16 +79,7 @@ export default function HomePage() {
       <section className="w-full py-16 bg-gray-50">
         <div className="max-w-6xl mx-auto px-6 text-center">
           <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-10">Exclusive partnerships with industry leaders</p>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {PARTNERS.map((partner) => (
-              <div key={partner.name} className="flex flex-col items-center justify-center p-8 rounded-xl bg-white border border-gray-100 shadow-sm hover:shadow-md hover:border-primary/20 transition-all group">
-                <div className="flex items-center justify-center mb-3 h-14">
-                  <img src={partner.logo} alt={partner.name} className="h-14 w-auto object-contain" />
-                </div>
-                <p className="font-bold text-gray-800 text-sm text-center">{partner.name}</p>
-              </div>
-            ))}
-          </div>
+          <ScrollingLogos partners={PARTNERS} />
         </div>
       </section>
 
