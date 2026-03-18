@@ -56,7 +56,7 @@ const TRUST_FEATURES = [
     icon: Award,
     title: "ISO Certified Quality",
     description:
-      "Our distribution processes and service standards meet international quality benchmarks, ensuring reliability at every stage.",
+      "We are ISO 13485:2016 certified company.",
   },
 ];
 
