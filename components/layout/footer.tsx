@@ -34,19 +34,14 @@ export function Footer() {
             {/* Social icons */}
             <div className="flex items-center gap-5">
               <Link
-                href={COMPANY.linkedIn}
-                aria-label="LinkedIn"
-                className="text-gray-400 hover:text-primary transition-colors hover:-translate-y-0.5 transform duration-300"
-              >
-                <LinkedInIcon />
-              </Link>
-              <Link
-                href={COMPANY.instagram}
-                aria-label="Instagram"
-                className="text-gray-400 hover:text-primary transition-colors hover:-translate-y-0.5 transform duration-300"
-              >
-                <InstagramIcon />
-              </Link>
+  href="https://www.linkedin.com/company/global-medical-systems-gms/?originalSubdomain=in"
+  target="_blank"
+  aria-label="LinkedIn"
+  className="text-gray-400 hover:text-primary transition-colors hover:-translate-y-0.5 transform duration-300"
+>
+  <LinkedInIcon />
+</Link>
+            
             </div>
             {/* Legal links */}
             <div className="flex gap-6">
