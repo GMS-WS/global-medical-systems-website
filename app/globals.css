@@ -108,3 +108,11 @@
 .animate-scroll:hover {
   animation-play-state: paused;
 }
+button, a[class*="bg-primary"], a[class*="bg-white"] {
+  transition: all 0.2s ease;
+}
+
+button:active, a[class*="bg-primary"]:active {
+  transform: scale(0.97);
+}
+
