@@ -91,8 +91,11 @@ export function ProductTabs({ products, categories }: Props) {
                   </button>
                   {isExpanded && (
                     <div className="mt-3 pt-3 border-t border-gray-100">
-                      <p className="text-sm text-gray-500 leading-relaxed">{description}</p>
-                    </div>
+<div className="text-sm text-gray-500 leading-relaxed">
+  {description.split("\n").map((line, i) => (
+    <p key={i} className="mb-1">{line}</p>
+  ))}
+</div>                    </div>
                   )}
                 </div>
               </div>
