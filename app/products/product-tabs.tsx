@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { LayoutGrid, Package, Search } from "lucide-react";
+import { LayoutGrid, Package, Search, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 import type { Product } from "@/lib/google-sheets";
 
@@ -13,6 +13,7 @@ type Props = {
 export function ProductTabs({ products, categories }: Props) {
   const [activeCategory, setActiveCategory] = useState<string>("all");
   const [searchQuery, setSearchQuery] = useState<string>("");
+  const [expandedCard, setExpandedCard] = useState<string | null>(null);
 
   const tabs = [
     { id: "all", label: "All Categories" },
@@ -66,25 +67,37 @@ export function ProductTabs({ products, categories }: Props) {
         )}
 
         <div className={cn("grid gap-6", visibleProducts.length <= 2 ? "grid-cols-1 sm:grid-cols-2 max-w-3xl mx-auto" : "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3")}>
-          {visibleProducts.map(({ image, title, description, company }, i) => (
-            <div key={`${title}-${i}`} className="rounded-xl overflow-hidden bg-white border border-gray-100 shadow-sm hover:shadow-xl hover:border-primary/20 transition-all duration-300 group hover:-translate-y-2 hover:scale-105">
-              <div className="relative aspect-video overflow-hidden flex items-center justify-center bg-white">
-                <img src={image} alt={title} className="w-full h-full object-contain p-2 transition-transform duration-300 group-hover:scale-105" />
-                {company && (
-                  <span className="absolute bottom-3 left-3 text-[10px] font-semibold text-white bg-black/60 backdrop-blur-sm border border-white/20 px-2 py-1 rounded-full">{company}</span>
-                )}
-              </div>
-              <div className="p-5">
-                <div className="flex items-center gap-2 mb-2">
-                  <div className="w-7 h-7 rounded-md bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors shrink-0">
-                    <Package className="size-4" />
-                  </div>
+          {visibleProducts.map(({ image, title, description, company }, i) => {
+            const cardId = `${title}-${i}`;
+            const isExpanded = expandedCard === cardId;
+            return (
+              <div key={cardId} className="rounded-xl overflow-hidden bg-white border border-gray-100 shadow-sm hover:shadow-xl hover:border-primary/20 transition-all duration-300 group hover:-translate-y-2 hover:scale-105">
+                <div className="relative aspect-video overflow-hidden flex items-center justify-center bg-white">
+                  <img src={image} alt={title} className="w-full h-full object-contain p-2 transition-transform duration-300 group-hover:scale-105" />
+                  {company && (
+                    <span className="absolute bottom-3 left-3 text-[10px] font-semibold text-white bg-black/60 backdrop-blur-sm border border-white/20 px-2 py-1 rounded-full">{company}</span>
+                  )}
                 </div>
-                <h3 className="font-bold text-gray-900 text-lg mb-2 leading-snug">{title}</h3>
-                <p className="text-sm text-gray-500 leading-relaxed">{description}</p>
+                <div className="p-5">
+                  <div className="flex items-center gap-2 mb-2">
+                    <div className="w-7 h-7 rounded-md bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors shrink-0">
+                      <Package className="size-4" />
+                    </div>
+                  </div>
+                  <h3 className="font-bold text-gray-900 text-lg mb-3 leading-snug">{title}</h3>
+                  <button onClick={() => setExpandedCard(isExpanded ? null : cardId)} className="flex items-center gap-2 text-sm font-semibold text-primary hover:text-primary/80 transition-colors">
+                    {isExpanded ? "Hide Details" : "View Details"}
+                    <ChevronDown className={cn("size-4 transition-transform duration-300", isExpanded ? "rotate-180" : "")} />
+                  </button>
+                  {isExpanded && (
+                    <div className="mt-3 pt-3 border-t border-gray-100">
+                      <p className="text-sm text-gray-500 leading-relaxed">{description}</p>
+                    </div>
+                  )}
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>
