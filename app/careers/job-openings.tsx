@@ -102,9 +102,9 @@ export function JobOpenings() {
                 </div>
               </div>
               <div className="mt-4 md:mt-0 md:ml-6">
-                <button className="flex items-center gap-2 text-sm font-bold text-gray-900 group-hover:translate-x-1 transition-transform">
-                  Apply Now <ArrowRight className="size-4 text-primary" />
-                </button>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSeSD7za9lSEKyseeysIwQXNhZ5UuqkNrDJGr7rLmpHuO1wIgA/viewform?usp=publish-editor" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm font-bold text-gray-900 group-hover:translate-x-1 transition-transform">
+  Apply Now <ArrowRight className="size-4 text-primary" />
+</a>
               </div>
             </div>
           ))}
