@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { Check, MapPin, Cpu, FlaskConical, Wind, Syringe, Eye, Package, ShieldCheck, Globe, Award, HeartPulse } from "lucide-react";
+import { Check, MapPin, Cpu, Globe, Award, Wind, ShieldCheck, Syringe, HeartPulse, Activity, Waves, Monitor, Droplets, ScanLine, Package2 } from "lucide-react";
 import { CtaSection } from "@/components/shared/cta-section";
 import { ScrollingLogos } from "@/components/shared/scrolling-logos";
 import { COMPANY } from "@/lib/constants";
