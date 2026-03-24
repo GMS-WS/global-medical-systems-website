@@ -28,12 +28,16 @@ const TRUST_FEATURES = [
 ];
 
 const EQUIPMENT_CATEGORIES = [
-  { icon: ShieldCheck, title: "Patient Care", description: "ICU beds, monitors, ventilators, and critical care systems." },
-  { icon: FlaskConical, title: "Diagnostic Imaging", description: "X-ray, ultrasound, and advanced imaging solutions." },
-  { icon: Wind, title: "Medical Gas", description: "Pipeline systems, manifolds, and gas delivery equipment." },
-  { icon: Syringe, title: "Infusion Pumps", description: "Precision drug delivery and IV infusion systems." },
-  { icon: Eye, title: "Ophthalmology", description: "Slit lamps, surgical microscopes, and vision care tools." },
-  { icon: Package, title: "Clinical Accessories", description: "Consumables, disposables, and clinical support products." },
+  { icon: Wind, title: "Anaesthesia and Respiratory Care", description: "Advanced anaesthesia workstations and respiratory care solutions." },
+  { icon: ShieldCheck, title: "Medical Gas Pipeline Systems", description: "Complete medical gas pipeline design, supply and installation." },
+  { icon: Syringe, title: "B.Braun", description: "Infusion therapy, pain management, and surgical instruments." },
+  { icon: HeartPulse, title: "Maternity and Infant Care", description: "Incubators, warmers, and neonatal care equipment." },
+  { icon: FlaskConical, title: "Diagnostic Cardiology", description: "ECG systems, holter monitors, and cardiac diagnostic tools." },
+  { icon: Package, title: "Ventilators", description: "ICU and transport ventilators for critical care environments." },
+  { icon: Cpu, title: "Monitors", description: "Patient monitoring systems for ICU, OT, and general wards." },
+  { icon: Eye, title: "Fisher & Paykel", description: "Respiratory care and ICU humidification systems." },
+  { icon: MapPin, title: "Digital Imaging", description: "X-ray, ultrasound, and advanced digital imaging solutions." },
+  { icon: ShieldCheck, title: "Clinical Accessories", description: "Consumables, disposables, and clinical support products." },
 ];
 
 export default function HomePage() {
