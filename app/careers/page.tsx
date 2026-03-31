@@ -168,7 +168,7 @@ export default function CareersPage() {
               excellence. Send us your resume, and we&apos;ll keep you in mind for future
               opportunities.
             </p>
-          <a href="https://docs.google.com/forms/d/e/1FAIpQLSeSD7za9lSEKyseeysIwQXNhZ5UuqkNrDJGr7rLmpHuO1wIgA/viewform?usp=publish-editor" target="_blank" rel="noopener noreferrer" className="flex h-12 items-center justify-center rounded-lg bg-primary px-8 text-white text-base font-bold transition-transform hover:scale-105 shadow-lg shadow-primary/20 mt-4">
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSdba1TJtcvUXnsnGy5AtOi3aakLMl7F1e8aT7TA1-OlxSN28A/viewform?usp=header" target="_blank" rel="noopener noreferrer" className="flex h-12 items-center justify-center rounded-lg bg-primary px-8 text-white text-base font-bold transition-transform hover:scale-105 shadow-lg shadow-primary/20 mt-4">
   Submit General Application
 </a>
           </div>
